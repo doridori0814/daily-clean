@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Daily Market Note</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-mark">M</span>
+      <span>Daily Market Note</span>
+    </a>
+    <nav>
+      <a href="/admin">업로드</a>
+    </nav>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">오늘의 시황</p>
+        <h1>오전시황과 장마감시황을 한 화면에서 확인합니다.</h1>
+      </div>
+      <div class="hero-date" id="todayLabel"></div>
+    </section>
+
+    <section class="toolbar" aria-label="리서치 필터">
+      <button class="chip is-active" data-filter="all">전체</button>
+      <button class="chip" data-filter="morning">오전시황</button>
+      <button class="chip" data-filter="close">장마감시황</button>
+      <input id="searchInput" type="search" placeholder="종목명, 티커, 내용 검색">
+    </section>
+
+    <section class="layout">
+      <aside class="date-list" id="dateList" aria-label="날짜 목록"></aside>
+      <section class="content-area">
+        <div id="emptyState" class="empty-state" hidden>
+          <h2>아직 올라온 리서치가 없습니다.</h2>
+          <p>관리자 화면에서 PDF와 특징 종목을 업로드하면 이 화면에 바로 표시됩니다.</p>
+        </div>
+        <div id="reportGrid" class="report-grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>

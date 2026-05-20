@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>리서치 업로드</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/">
+      <span class="brand-mark">M</span>
+      <span>Daily Market Note</span>
+    </a>
+    <nav>
+      <a href="/">독자 화면</a>
+    </nav>
+  </header>
+
+  <main class="shell admin-shell">
+    <section class="hero compact">
+      <div>
+        <p class="eyebrow">관리자</p>
+        <h1>PDF를 올리면 독자 화면에 바로 공개됩니다.</h1>
+      </div>
+    </section>
+
+    <form id="uploadForm" class="upload-panel">
+      <div class="form-grid">
+        <label>
+          관리자 비밀번호
+          <input name="password" type="password" required placeholder="기본값: codex1234">
+        </label>
+        <label>
+          날짜
+          <input name="date" type="date" required>
+        </label>
+        <label>
+          리서치 종류
+          <select name="type" required>
+            <option value="morning">오전시황</option>
+            <option value="close">장마감시황</option>
+          </select>
+        </label>
+        <label>
+          제목
+          <input name="title" type="text" placeholder="예: 5월 18일 오전시황">
+        </label>
+      </div>
+
+      <label>
+        주요 코멘트
+        <textarea name="mainComment" rows="5" placeholder="오늘 시황에서 가장 중요하게 봐야 할 코멘트를 적어주세요."></textarea>
+      </label>
+
+      <div class="form-grid">
+        <label>
+          국내주식
+          <textarea name="domesticStocks" rows="5" placeholder="국내 증시 흐름, 수급, 업종별 움직임 등을 적어주세요."></textarea>
+        </label>
+        <label>
+          해외주식
+          <textarea name="overseasStocks" rows="5" placeholder="미국/중국/일본 등 해외 증시와 주요 이슈를 적어주세요."></textarea>
+        </label>
+      </div>
+
+      <label>
+        주요 뉴스
+        <textarea name="majorNews" rows="5" placeholder="한 줄 또는 문단으로 주요 뉴스를 정리해주세요."></textarea>
+      </label>
+
+      <section class="stocks-editor">
+        <div class="section-title">
+          <h2>특징 종목</h2>
+          <button type="button" id="addStock" class="secondary-button">+ 종목 추가</button>
+        </div>
+        <div id="stockRows" class="stock-rows"></div>
+      </section>
+
+      <label class="file-drop">
+        <input name="pdf" type="file" accept="application/pdf" required>
+        <span>PDF 파일 선택</span>
+        <strong id="fileName">선택된 파일 없음</strong>
+      </label>
+
+      <input type="hidden" name="stocks" id="stocksInput">
+      <button class="primary-button" type="submit">업로드하고 공개</button>
+      <p id="formMessage" class="form-message" role="status"></p>
+    </form>
+  </main>
+
+  <script src="/admin.js"></script>
+</body>
+</html>
